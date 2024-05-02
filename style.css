@@ -1,0 +1,144 @@
+/* Reset CSS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Global Styles */
+body {
+  font-family: "Poppins", sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Header Styles */
+.header {
+  background-color: #222;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 2px solid #333;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+}
+
+.navbar {
+  display: flex;
+}
+
+.navbar a {
+  font-size: 16px;
+  margin-left: 20px;
+  padding-bottom: 5px;
+  border-bottom: 2px solid transparent;
+  transition: border-bottom 0.3s ease;
+}
+
+.navbar a:hover {
+  border-bottom: 2px solid purple;
+}
+
+/* Main Section Styles */
+main {
+  padding: 20px;
+}
+
+section {
+  margin-bottom: 40px;
+  border-radius: 10px;
+}
+
+.color1 {
+  background: linear-gradient(to right, #436aa3, #6e76a8, #8e83ac, #a693b1, #b8a5b7);
+  padding: 20px;
+}
+
+.color2 {
+  background: linear-gradient(to right, #436aa3, #606ba6, #796ba5, #8e6ba3, #a16c9e);
+  padding: 20px;
+}
+
+.h1 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.text-wrapper {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+/* About Section Styles */
+.sp, .ps {
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.text, .picture {
+  flex: 1;
+}
+
+.texty {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.picture video {
+  width: 100%;
+}
+
+/* Education Section Styles */
+.edu {
+  background: linear-gradient(to right, #436aa3, #7078b0, #9488bc, #b599c6, #d2abd0);
+  padding: 20px;
+}
+
+.r {
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 20px;
+}
+
+.colored-square {
+  width: 200px;
+  height: 150px;
+  background-color: #333;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.ani {
+  font-size: 40px;
+}
+
+.w {
+  font-size: 16px;
+  text-align: center;
+  color: #fff;
+}
+
+/* Footer Styles */
+footer {
+  background: linear-gradient(to right, #3c5e8f, #3675a2, #358cb1, #3fa3bd, #54b9c6);
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+}
+
+.f {
+  font-size: 14px;
+}

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thank You</title>
+<style>
+  body {
+    background-color: #f0f0f0; /* Change to desired background color */
+  }
+  header {
+    background-color: #333; /* Change to desired header background color */
+    color: white; /* Change to desired header text color */
+    padding: 20px;
+    text-align: center;
+  }
+  #logo {
+    max-width: 100px; /* Adjust logo width */
+    max-height: 100px; /* Adjust logo height */
+    margin-bottom: 10px;
+  }
+  main {
+    padding: 70px;
+    text-align: center;
+    font-size: 30px; /* Adjust the font size to your preference */
+  }
+  footer {
+    background-color: #333; /* Change to desired footer background color */
+    color: white; /* Change to desired footer text color */
+    padding: 10px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+  }
+</style>
+</head>
+
+<body>
+
+<header>
+  <img id="logo" src="{{ url_for('static', filename='checked.png') }}" alt="GlobalDub Logo">
+
+  <h1>Thank You for Using GlobalDub!</h1>
+</header>
+
+<main>
+  <p>Here's your translated video:</p>
+  <video width="640" height="360" controls>
+    <source src="{{ url_for('static', filename='result.mp4') }}" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
+</main>
+
+<footer>
+  <p>© 2024 Ashley, Angel, Sherya, Krisha. All Rights Reserved</p>
+</footer>
+
+</body>
+</html>

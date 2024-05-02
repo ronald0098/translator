@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GlobalDub</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+
+<body>
+
+<header class="header">
+  <img class="logo" src="{{ url_for('static', filename='website logo.png') }}" alt="logo1">
+  <nav class="navbar">
+      <!-- <a href="#Home">Home</a>
+      <a href="#About">About</a>
+      <a href="#Educate">Education</a> -->
+      <!-- <img class="logo" src="{{ url_for('static', filename='website logo.jpeg') }}" alt="logo1"> -->
+  </nav>
+</header>
+
+<main>
+    <div id="Home" class="color1">
+        <div class="center-paragraph">
+            <p>Revolutionize the way you communicate!.</p>
+        </div>
+        <div class="button-container">
+            <form method="POST" action="/uploadPage" enctype="multipart/form-data">
+                <label for="file" class="file-upload-label">
+                    Choose an MP4 file to convert:
+                    <input type="file" id="file" name="file" accept=".mp4" required onchange="displayFileName()">
+                </label>
+                <div id="file-name-container"></div>
+                <label for="language">Select the language:</label>
+                <select id="language" name="language">
+                    {% for lang in supported_languages %}
+                        <option value="{{ lang }}">{{ lang }}</option>
+                    {% endfor %}
+                </select>
+                
+                <input type="submit" value="Upload and Translate">
+                
+            </form>
+            <!-- Button to go to thankyou.html -->
+            <a href="/thankyou" class="button">View Results</a>
+
+        </div>
+    
+
+
+
+  <!--2nd Section-->
+
+<div id="About" class="color2">
+<h1 class="h1">About GlobalDub</h1>
+<p class="text-wrapper">GlobalDub is the solution for translating a video to regional  language! Through our software, we can connect the world with digital videos. Just submit your file, select your language and then submit!</p>
+<!-- Before Video -->
+<!-- Before Video -->
+<div class="sp">
+  <div class="text">
+    <h1>Before</h1>
+    <p class="texty">This is the video that is presented in English language</p>
+  </div>
+  <div class="picture">
+    <video width="640" height="360" controls>
+      <source src="{{ url_for('static', filename='Inspirational_Speech-_PRIYANKA_CHOPRA_JONAS_-_Motivational_Short_Video_-_Incredible_You.mp4') }}" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+</div>
+
+<!-- After Video -->
+<div class="ps">
+  <div class="text">
+    <h1>After</h1>
+    <p>This is the video that is converted to Hindi using <strong><i>"GlobalDub"</i></strong></p>
+  </div>
+  <div class="picture">
+    <video width="640" height="360" controls>
+      <source src="{{ url_for('static', filename='result (8).mp4') }}" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+</div>
+
+
+
+
+</div>
+
+
+<!-- 3rd Section-->
+
+
+<div id="Educate" class="edu">
+<h1 class="h1">Education</h1>
+<p class="text-wrapper">
+   <strong><i>Dubbing</i></strong> has opened audiences to understand and comprehend <br>
+  in ways that wasn't possible before it. It allows watching films <br>
+  various languages more accessible, aids learners wanting to learn <br>
+ other languages, help viewers connect with the message of the content, <br>
+ and lets a large audience enjoy and interpret different videos.</p>
+  
+ <div class="r">
+  <div class="colored-square">
+    <p class="ani">🎬</p>
+    <p class="w">Watching films become more accessible.</p>
+  </div>
+  
+ <div class="colored-square">
+  <p class="ani">📒</p>
+  <p class="w">Learners can learn various languages.</p>
+ </div>
+ <div class="colored-square">
+  <p class="ani">👤</p>
+  <p class="w">Viewers can connect with the message of the video.</p>
+ </div>
+</div>
+</div>
+</main>
+
+
+
+<!--4th Section-->
+<footer>
+<div class="f">
+<p id="thankYouMessage" style="display: none;">Thank you for using our services!</p>
+<p>© 2024 Ashley, Angel, Sherya,Krisha. All Rights Reserved</p>
+</div>
+</footer>
+
+<script>
+  function displayFileName() {
+      const fileInput = document.getElementById('file');
+      const fileNameContainer = document.getElementById('file-name-container');
+
+      if (fileInput.files.length > 0) {
+          const fileName = fileInput.files[0].name;
+          fileNameContainer.innerText = fileName; // Display file name inside the dotted box
+      } else {
+          fileNameContainer.innerText = '';
+      }
+  }
+
+  // Function to display thank you message after form submission
+  document.getElementById('uploadForm').addEventListener('submit', function(event) {
+      // Prevent the default form submission behavior
+      event.preventDefault();
+
+      // Display the thank you message
+      document.getElementById('thankYouMessage').style.display = 'block';
+
+      // Submit the form asynchronously
+      const form = event.target;
+      const formData = new FormData(form);
+
+      fetch(form.action, {
+          method: form.method,
+          body: formData
+      })
+      .then(response => {
+          // Check if the response is successful and hide the message
+          if (response.ok) {
+              // Check if the file exists every second
+              const checkInterval = setInterval(function() {
+                  // Check if the file exists on the client's system
+                  fetch('/check-file-exists')
+                      .then(response => response.json())
+                      .then(data => {
+                          if (data.fileExists) {
+                              // If the file exists, stop checking and hide the message
+                              clearInterval(checkInterval);
+                              document.getElementById('thankYouMessage').style.display = 'none';
+                          }
+                      })
+                      .catch(error => {
+                          console.error('Error checking file existence:', error);
+                      });
+              }, 1000); // Check every second
+          } else {
+              throw new Error('Failed to submit form');
+          }
+      })
+      .catch(error => {
+          console.error('Error submitting form:', error);
+      });
+  });
+</script>
+ 
+  </body>
+</html>

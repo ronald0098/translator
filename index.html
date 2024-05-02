@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dub The Valley</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="header">
+  <a href="#" class="logo">Dub The Valley</a>
+  <nav class="navbar">
+    <a href="#Home">Home</a>
+    <a href="#About">About</a>
+    <a href="#Educate">Education</a>
+  </nav>
+</header>
+
+<main>
+
+  <!-- 1st Section -->
+  <section id="Home" class="color1">
+    <div class="center-paragraph">
+      <p>Revolutionize the way you communicate!</p>
+    </div>
+    <div class="button-container">
+      <button type="button">Button 1</button>
+      <button type="button">Button 2</button>
+    </div>
+    <div class="button-container">
+      <button type="button">Apply</button>
+    </div>
+  </section>
+
+  <!-- 2nd Section -->
+  <section id="About" class="color2">
+    <h1 class="h1">About Dub The Valley</h1>
+    <p class="text-wrapper">Dub The Valley is the solution for translating a video to any other language! Through our software, we can connect the world with digital videos. Just submit your file, select your language, and then submit!</p>
+    <!-- Before Video -->
+<div class="sp">
+  <div class="text">
+    <h1>Before</h1>
+    <p class="texty">This is the video that is presented in English language</p>
+  </div>
+  <div class="picture">
+    <video width="640" height="360" controls>
+      <source src="{{ url_for('static', filename='default.mp4') }}" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+</div>
+
+<!-- After Video -->
+<div class="ps">
+  <div class="text">
+    <h1>After</h1>
+    <p>This is the video that is converted to Spanish using <strong><i>"Dub The Valley"</i></strong></p>
+  </div>
+  <div class="picture">
+    <video width="640" height="360" controls>
+      <source src="{{ url_for('static', filename='chintan2.mp4') }}" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+  </div>
+</div>
+
+    <div class="ps">
+      <div class="text">
+        <h2>After</h2>
+        <p>This is the video that is converted to Spanish using <strong>"Dub The Valley"</strong></p>
+      </div>
+      <div class="picture">
+        <video width="640" height="360" controls>
+          <source src="C:\Users\Ronald\Desktop\dubthevalley-main\result.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+    </div>
+  </section>
+
+  <!-- 3rd Section -->
+  <section id="Educate" class="edu">
+    <h1 class="h1">Education</h1>
+    <p class="text-wrapper">
+      <strong>Dubbing</strong> has opened audiences to understand and comprehend
+      in ways that weren't possible before it. It allows watching films
+      various languages more accessible, aids learners wanting to learn
+      other languages, help viewers connect with the message of the content,
+      and lets a large audience enjoy and interpret different videos.
+    </p>
+    <div class="r">
+      <div class="colored-square">
+        <p class="ani">🎬</p>
+        <p class="w">Watching films become more accessible.</p>
+      </div>
+      <div class="colored-square">
+        <p class="ani">📒</p>
+        <p class="w">Learners can learn various languages.</p>
+      </div>
+      <div class="colored-square">
+        <p class="ani">👤</p>
+        <p class="w">Viewers can connect with the message of the video.</p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="f">
+    <p>© 2024 Ashley and Group. All Rights Reserved</p>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GlobalDub</title>
+    <style>
+        /* Reset CSS */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            background-color: #222;
+            color: #fff;
+        }
+
+        .container {
+            width: 90%;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo img {
+            max-height: 100px;
+            
+        }
+
+        nav ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin-right: 20px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #fff;
+        }
+
+        .cta .btn {
+            padding: 10px 20px;
+            background-color: #ff9900;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+        }
+
+        .cta .btn:hover {
+            background-color: #ff6600;
+        }
+
+        /* Hero Section */
+        .hero {
+            background-image: url('hero-background.jpg'); /* Replace 'hero-background.jpg' with your actual image */
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+            text-align: center;
+            padding: 100px 0;
+        }
+
+        .hero-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .hero-content h1 {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .hero-content p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        .hero-content .btn {
+            padding: 12px 30px;
+            background-color: #ff9900;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+
+        .hero-content .btn:hover {
+            background-color: #ff6600;
+        }
+
+        /* Add other sections' CSS here */
+
+        .feature-item img {
+        width: 80px; /* Adjust the width as needed */
+        height: 80px; /* Adjust the height as needed */
+        }
+
+        .step img {
+        width: 80px; /* Adjust the width as needed */
+        height: 80px; /* Adjust the height as needed */
+        }
+
+
+        .language img {
+        width: 80px; /* Adjust the width as needed */
+        height: 80px; /* Adjust the height as needed */
+        border-radius: 50%;
+        }
+
+        .copyright {
+            position: absolute; /* Position the element */
+            left: 0; /* Align to the left */
+            right: 0; /* Align to the right */
+            bottom: -1190px; /* Align to the bottom with some space */
+            margin-bottom: 20px; /* Adjust as needed */
+            text-align: center; /* Center-align the text */
+        }
+
+
+
+        .testimonial-box {
+            display: flex; /* Display testimonials side by side */
+        }
+
+        .testimonial {
+            flex: 1; /* Each testimonial takes equal width */
+            background-color: #333; /* Background color of testimonial box */
+            padding: 20px; /* Padding for spacing */
+            margin-right: 20px; /* Margin between testimonials */
+            border-radius: 5px; /* Rounded corners */
+            width: 300px; /* You can change this value to your desired width */
+        }
+
+        .testimonial:last-child {
+            margin-right: 0; /* Remove margin from last testimonial */
+        }
+
+        .testimonial img {
+                width: 50px; /* Adjust the width of the user image */
+                height: 50px; /* Adjust the height of the user image */
+                border-radius: 50%; /* Make the user image circular */
+                margin-right: 10px; /* Add margin between the image and text */
+        }
+
+        .testimonial-content {
+            color: #fff; /* Text color */
+        }
+
+        .testimonial-content p {
+            margin-bottom: 10px; /* Bottom margin for paragraph */
+        }
+
+        .testimonial-content span {
+            font-style: italic; /* Italics for the author's name */
+        }
+
+        .how-it-works .container {
+            display: flex;
+            justify-content: flex-start; /* Change 'space-between' to 'flex-start' */
+        }
+
+
+        .how-it-works .container .step {
+            flex: 1;
+            margin-right: 20px; /* Adjust as needed for the space between steps */
+        }
+
+        .how-it-works .container .step:last-child {
+            margin-right: 0; /* Remove margin from the last step */
+        }
+
+        /* Carousel */
+        .carousel-container {
+            overflow: hidden;
+        }
+
+        .carousel {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .language {
+            width: 300px; /* Adjust the width of each language item */
+            flex-shrink: 0; /* Prevent items from shrinking */
+            margin-right: 20px; /* Adjust margin between items */
+            background-color: #f0f0f0;
+            border-radius: 10px;
+            padding: 20px;
+        }
+
+        .language h3 {
+            margin-top: 0;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <div class="logo">
+            <img src="{{ url_for('static', filename='website logo.png') }}" alt="Website Logo">
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+        </nav>
+        <div class="cta">
+            <a href="/uploadPage" class="btn">Get Started</a> <!-- Link updated to navigate to upload.html -->
+        </div>
+    </div>
+</header>
+
+<main>
+    <!-- Your main content here -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Translate Your Videos to Any Indian Language</h1>
+                <p>Reach a Wider Audience with Multilingual Video Translation</p>
+                <a href="/uploadPage" class="btn">Get Started</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="features">
+        <center><h2>Key Features</h2></center>
+        <div class="container">
+            <!-- <h2>Key Features</h2> -->
+            <div class="feature-item">
+                <img src="{{ url_for('static', filename='check-mark.png') }}" alt="Accuracy Icon">
+                <h3>High Accuracy</h3>
+                <p>Our advanced translation algorithms ensure accurate translations.</p>
+            </div>
+            <div class="feature-item">
+                <img src="{{ url_for('static', filename='clock.png') }}" alt="Fast Icon">
+                <h3>Fast Turnaround Time</h3>
+                <p>Get your videos translated quickly to reach your audience faster.</p>
+            </div>
+            <div class="feature-item">
+                <img src="{{ url_for('static', filename='video-file.png') }}" alt="Format Icon">
+                <h3>Supports Multiple Formats</h3>
+                <p>We support various video formats for seamless translation.</p>
+            </div>
+        </div>
+    </section>
+    
+
+    <section class="how-it-works">
+        <center><h2>How It Works</h2></center>
+        <div class="container">
+            <!-- <h2>How It<br> Works</h2> -->
+            <div class="step">
+                <img src="{{ url_for('static', filename='upload.png') }}" alt="Step 1 Icon">
+                <h3>Upload Your Video</h3>
+                <p>Choose the video you want to translate and upload it to our platform.</p>
+            </div>
+            <div class="step">
+                <img src="{{ url_for('static', filename='language.png') }}" alt="Step 2 Icon">
+                <h3>Select Target Language</h3>
+                <p>Specify the Indian regional language you want your video to be translated into.</p>
+            </div>
+            <div class="step">
+                <img src="{{ url_for('static', filename='review.png') }}" alt="Step 3 Icon">
+                <h3>Review and Confirm</h3>
+                <p>Review the translated video and confirm to finalize the translation process.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <div class="container">
+            <h2>Testimonials</h2>
+            <div class="testimonial-box">
+                <div class="testimonial">
+                    
+                    <img src="{{ url_for('static', filename='download.png') }}" alt="User 1">
+                    <div class="testimonial-content">
+                        <p>"The video translation service provided by this website is excellent! I was impressed by the accuracy and speed of translation."</p>
+                        <span>- Dr.S.M.Khot</span>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-box">
+                <div class="testimonial">
+                    <img src="{{ url_for('static', filename='download (1).png') }}" alt="User 2">
+                    <div class="testimonial-content">
+                        <p>"I've used many translation services before, but this one stands out. Highly recommended!"</p>
+                        <span>- Dr.Trupti Lotlikar</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+    <section class="languages">
+        <center><h2>Languages We Translate To</h2></center>
+        <div class="container carousel-container">
+            <!-- <h2>Languages We Translate To</h2> -->
+            
+            <div class="carousel">
+                <div class="language">
+                    <img src="{{ url_for('static', filename='english.jpg') }}" alt="Language 1">
+                    <h3 style="color: black;">English</h3>
+                    <p style="color: black;">English is a West Germanic language spoken primarily in the United Kingdom, the United States, Canada, Australia, and various other countries around the world.</p>
+                </div>
+                
+                <div class="language">
+                    <img src="{{ url_for('static', filename='letter-d.png') }}" alt="Language 3">
+                    <h3 style="color: black;">Marathi</h3>
+                    <p style="color: black;">The official language of the Indian state of Maharashtra.</p>
+                </div>
+
+                <div class="language">
+                    <img src="{{ url_for('static', filename='malyalam.jpg') }}" alt="Language 3">
+                    <h3 style="color: black;">Malayalam</h3>
+                    <p style="color: black;">The official language of the Indian state of Kerala.</p>
+                </div>
+
+                <div class="language">
+                    <img src="{{ url_for('static', filename='tamil.jpg') }}" alt="Language 3">
+                    <h3 style="color: black;">Tamil</h3>
+                    <p style="color: black;">The official language of the Indian state of Tamil Nadu.</p>
+                </div>
+
+                <div class="language">
+                    <img src="{{ url_for('static', filename='Gujarati.jpg') }}" alt="Language 3">
+                    <h3 style="color: black;">Gujarati</h3>
+                    <p style="color: black;">The official language of the Indian state of Gujarat.</p>
+                </div>
+
+                <div class="language">
+                    <img src="{{ url_for('static', filename='Telugu.jpg') }}" alt="Language 3">
+                    <h3 style="color: black;">Telugu</h3>
+                    <p style="color: black;">The official language of the Indian state of Andhra Pradesh .</p>
+                </div>
+
+                <div class="language">
+                    <img src="{{ url_for('static', filename='kannada.jpg') }}" alt="Language 3">
+                    <h3 style="color: black;">Kannada</h3>
+                    <p style="color: black;">The official language of the Indian state of Karnataka.</p>
+                </div>
+                <!-- Add more language entries as needed -->
+            </div>
+        </div>
+    </section>
+
+    <!-- <section class="cta">
+        <div class="container">
+            <h2>Ready to Translate Your Videos?</h2>
+            <p>Get started now and reach a wider audience with our multilingual video translation service.</p>
+            <a href="/uploadPage" class="btn">Get Started</a>
+        </div>
+    </section> -->
+</main>
+
+<footer class="footer">
+    <!-- Your footer content here -->
+    <!-- <div class="container">
+        <div class="footer-content">
+            <div class="footer-column">
+                <h3>Contact Us</h3>
+                <p>Email: contact@example.com</p>
+                <p>Phone: +1234567890</p>
+                <p>Address: 123 Street, City, Country</p>
+            </div> -->
+            <div class="footer-column">
+                <!-- <h3>Follow Us</h3> -->
+                <!-- <ul class="social-links"> -->
+                    <!-- <li><a href="https://www.facebook.com/YourPage"><i class="fab fa-facebook-f"></i></a></li> -->
+                    <!-- <li><a href="https://twitter.com/YourTwitter"><i class="fab fa-twitter"></i></a></li> -->
+                    <!-- <li><a href="https://www.instagram.com/YourInstagram"><i class="fab fa-instagram"></i></a></li> -->
+                    <!-- Add more social media links as needed -->
+                </ul>
+            </div>
+            
+        </div>
+        <div class="copyright">
+            <p> 2024 Ashley, Angel, Shreya, Krishna. All rights reserved.</p>
+        </div>
+    </div>
+</footer>
+
+<script>
+    const carousel = document.querySelector('.carousel');
+    let position = 0; // Initial position of the carousel
+
+    function slideCarousel() {
+        position -= 1; // Move the carousel items to the left
+        carousel.style.transform = `translateX(${position}px)`;
+
+        // Reset position when reaching the end of the carousel
+        if (position <= -320 * (carousel.children.length - 1)) {
+            position = 0;
+        }
+
+        // Repeat sliding effect
+        requestAnimationFrame(slideCarousel);
+    }
+
+    // Start sliding the carousel
+    slideCarousel();
+</script>
+
+</body>
+</html>
